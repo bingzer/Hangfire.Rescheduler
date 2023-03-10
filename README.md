@@ -45,8 +45,8 @@ RecurringJob.AddOrUpdate<CacheCleaner>("CacheCleaner", job => job.CleanCache(), 
 IServiceProvider services = ...
 IConfigurationRoot root = ...
 
-var options = root.getConfiguration<JobReschedulingOption>();
-var jobRescheduler = services.GetService<IJobRescheduler>("JobOptions");
+var options = root.getConfiguration<JobReschedulingOption>("JobOptions");
+var jobRescheduler = services.GetService<IJobRescheduler>();
 jobRescheduler.LoadSchedules(options);
 ...
 ```
